@@ -41,39 +41,7 @@ plt.title("Распределение заказов по перевозчика
 plt.xlabel("Carrier ID")
 plt.ylabel("Completed Orders")
 plt.show()
-import random
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# Константы
-NUM_CARRIERS = 6  # Количество агентов-перевозчиков
-SIMULATION_DAYS = 365  # Количество дней моделирования (1 год)
-ORDER_INTERVAL = (5, 3)  # Средний интервал между заказами и разброс (5±3 дней)
-K_RANGE = (100, 500)  # Диапазон для числа товаров
-L_RANGE = (1, 15)  # Диапазон для расстояния в заказе
-PROPOSAL_DAYS = 3  # Время формирования предложений
-MANAGER_PROCESSING_DAYS = 1  # Время обработки предложений менеджером
 
 
 
-# Запуск симуляции и анализ результатов
-manager = simulate()
 
-# Вывод распределения заказов по компаниям-перевозчикам
-order_distribution_df = pd.DataFrame.from_dict(manager.order_distribution, orient='index', columns=['Completed Orders'])
-order_distribution_df.index.name = 'Carrier ID'
-
-# Подсчет времени простоя
-total_idle_days = manager.order_idle_days
-
-# Вывод результатов
-print("Распределение заказов по перевозчикам:")
-print(order_distribution_df)
-print(f"\nОбщее количество дней простоя из-за занятости всех перевозчиков: {total_idle_days} дней")
-
-# Визуализация
-order_distribution_df.plot(kind='bar', legend=False)
-plt.title("Распределение заказов по перевозчикам")
-plt.xlabel("Carrier ID")
-plt.ylabel("Completed Orders")
-plt.show()
