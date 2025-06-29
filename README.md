@@ -14,9 +14,3 @@
  pip install -r requirements.txt 
 ``` 
 - Запустите класс main
-
-
-
-
-# Скриншоты
-![График](https://github.com/Segafoxs/telegram_Image_bot/blob/master/Безымянный.png)
